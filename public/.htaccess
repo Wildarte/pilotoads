@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Ajuste o caminho base se o projeto não estiver na raiz do domínio
+    RewriteBase /meu_mvc/public/
+
+    # Se o arquivo ou pasta não existir, redireciona para index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
